@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: itdt-contained-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: itdt-contained-frontend
+  template:
+    metadata:
+      labels:
+        app: itdt-contained-frontend
+    spec:
+      containers:
+      - name: itdt-contained-frontend
+        image:  ifilyaninitmo/itdt-contained-frontend:master
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "1"
+        env:
+          - name: REACT_APP_USERNAME
+            value: Khakimov Lev
+          - name: REACT_APP_COMPANY_NAME
+            value: ITMO
+        ports:
+        - containerPort: 3000

@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: itdt-contained-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: itdt-contained-frontend
+  template:
+    metadata:
+      labels:
+        app: itdt-contained-frontend
+    spec:
+      containers:
+      - name: itdt-contained-frontend
+        image:  ifilyaninitmo/itdt-contained-frontend:master
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "1"
+        envFrom:
+          - configMapRef:
+              name: itdt-frontend
+        ports:
+        - containerPort: 3000
+      affinity:
+        podAntiAffinity:
+           requiredDuringSchedulingIgnoredDuringExecution:
+             - labelSelector:
+                 matchExpressions:
+                   - key: "app"
+                     operator: In
+                     values:
+                     - itdt-contained-frontend
+               topologyKey: "kubernetes.io/hostname"

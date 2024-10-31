@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: itdt-contained-frontend
+  labels:
+    name: itdt-contained-frontend
+spec:
+  tls:
+    - hosts: 
+      - itdt-front.local
+      secretName: itdt-contained-frontend-certs
+  rules:
+  - host: itdt-front.local
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: itdt-contained-frontend
+            port: 
+              number: 3000

@@ -1,0 +1,29 @@
+apiVersion: projectcalico.org/v3
+kind: IPPool
+metadata:
+  name: zone-east-ippool
+spec:
+  cidr: 172.16.10.0/24
+  ipipMode: Always
+  blockSize: 26
+  natOutgoing: true
+  nodeSelector: zone == "east"
+  vxlanMode: Never
+  allowedUses:
+  - Workload
+  - Tunnel
+---
+apiVersion: projectcalico.org/v3
+kind: IPPool
+metadata:
+   name: zone-west-ippool
+spec:
+  cidr: 172.16.20.0/24
+  ipipMode: Always
+  blockSize: 26
+  natOutgoing: true
+  nodeSelector: zone == "west"
+  vxlanMode: Never
+  allowedUses:
+  - Workload
+  - Tunnel
