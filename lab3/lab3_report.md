@@ -5,8 +5,8 @@ Year: 2024/2025
 Group: K4110c  
 Author: Khakimov Lev Nailevich  
 Lab: Lab3  
-Date of create: 31.10.2024  
-Date of finished: 
+Date of create: 31.10.2024   
+Date of finished: 31.10.2024  
 ---
 
 0. Включаем аддон ingress 

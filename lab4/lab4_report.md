@@ -6,7 +6,7 @@ Group: K4110c
 Author: Khakimov Lev Nailevich  
 Lab: Lab4  
 Date of create: 31.10.2024  
-Date of finished:   
+Date of finished: 31.10.2024  
 ---
 
 1. Calico мы уже добавили в 1 лабораторной работе
